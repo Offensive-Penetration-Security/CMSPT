@@ -6,7 +6,7 @@ use Digest::MD5  qw(md5_hex);
 use Digest::SHA1  qw(sha1_hex);
 
 # Author: @nu11secur1ty
-# Date: 09/06/11
+# Date: 21/01/21
 # Contact: @gmail.com
 # Follow: nu11secur1ty.com
 
