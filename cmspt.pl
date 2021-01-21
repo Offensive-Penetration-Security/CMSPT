@@ -39,10 +39,10 @@ sub ipb_cracker{
 	foreach $file (@FILES) {
 	open(DICT,"<".$dir.$file) || die "\n[-] Error opening $file\n\n";
 	print "[!] Using $file...\n";
-			foreach $password(<DICT>) {
-				$password=~s/\s|\n//;
+			foreach my $password(<DICT>) {
+				my $password=~s/\s|\n//;
 				chomp($password);
-				$cracked = md5_hex(md5_hex($salt).md5_hex($password));
+				my $cracked = md5_hex(md5_hex($salt).md5_hex($password));
 				if ($cracked eq $hash) {
 					return "[+] Hash cracked !: $password\n\n";
 				}
