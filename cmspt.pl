@@ -36,14 +36,14 @@ sub ipb_cracker{
 	my $hash = shift;
 	my $salt = shift;
 	my $dir  = shift;
-	foreach $file (@FILES) {
+	foreach my $file (@FILES) {
 	open(DICT,"<".$dir.$file) || die "\n[-] Error opening $file\n\n";
 	print "[!] Using $file...\n";
 			foreach my $password(<DICT>) {
 				my $password=~s/\s|\n//;
 				chomp($password);
-				my $cracked = md5_hex(md5_hex($salt).md5_hex($password));
-				if ($cracked eq $hash) {
+				my $cracked = md5_hex(md5_hex( my $salt).md5_hex(my $password));
+				if (my $cracked eq my $hash) {
 					return "[+] Hash cracked !: $password\n\n";
 				}
 			}
@@ -56,13 +56,13 @@ sub vb_cracker{
 	my $hash = shift;
 	my $salt = shift;
 	my $dir  = shift;
-	foreach $file (@FILES) {
+	foreach my $file (@FILES) {
 	open(DICT,"<".$dir.$file) || die "\n[-] Error opening $file\n\n";
 	print "[!] Using $file...\n";
-			foreach $password(<DICT>) {
-				$password=~s/\s|\n//;
+			foreach my $password(<DICT>) {
+				my $password=~s/\s|\n//;
 				chomp($password);
-				$cracked = md5_hex(md5_hex($password).$salt);
+				my $cracked = md5_hex(md5_hex(my $password).$salt);
 				if ($cracked eq $hash) {
 					return "[+] Hash cracked !: $password\n\n";
 				}
@@ -76,13 +76,13 @@ sub smf_cracker{
 	my $hash = shift;
 	my $user = shift;
 	my $dir  = shift;
-	foreach $file (@FILES) {
+	foreach my $file (@FILES) {
 	open(DICT,"<".$dir.$file) || die "\n[-] Error opening $file\n\n";
 	print "[!] Using $file...\n";
-			foreach $password(<DICT>) {
-				$password=~s/\s|\n//;
+			foreach my $password(<DICT>) {
+				my $password=~s/\s|\n//;
 				chomp($password);
-				$cracked = sha1_hex($user.$password);
+				my $cracked = sha1_hex(my $user.$password);
 				if ($cracked eq $hash) {
 					return "[+] Hash cracked !: $password\n\n";
 				}
@@ -96,14 +96,14 @@ sub joomla_cracker{
 	my $hash = shift;
 	my $salt = shift;
 	my $dir  = shift;
-	foreach $file (@FILES) {
+	foreach my $file (@FILES) {
 	open(DICT,"<".$dir.$file) || die "\n[-] Error opening $file\n\n";
 	print "[!] Using $file...\n";
-			foreach $password(<DICT>) {
-				$password=~s/\s|\n//;
+			foreach my $password(<DICT>) {
+				my $password=~s/\s|\n//;
 				chomp($password);
-				$cracked = md5_hex($password.$salt);
-				if ($cracked eq $hash) {
+				my $cracked = md5_hex($password.$salt);
+				if ($cracked eq my $hash) {
 					return "[+] Hash cracked !: $password\n\n";
 				}
 			}
@@ -114,7 +114,7 @@ sub joomla_cracker{
 
 my ($dir, $hash, $salt, $cms, $arg);
 
-foreach $loop (@ARGV) {
+foreach my $loop (@ARGV) {
 	for ($loop) {
 		/^-d$/ and do { $dir = $ARGV[($arg+1)]; last; };
 		/^-h$/ and do { $hash = $ARGV[($arg+1)];  last; };
