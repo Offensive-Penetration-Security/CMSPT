@@ -7,4 +7,5 @@
 - - - WARNING: This software is protected by the law if you use it for a malicious purpose you will take your own responsibility!
 
 - - - Framework
-[![]()]()
+
+[![](https://github.com/Offensive-Penetration-Security/CMSPT/blob/main/logos/koshinudze.jpg)](https://github.com/nu11secur1ty/koshinudze)
